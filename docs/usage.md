@@ -50,4 +50,21 @@ Per distribuire il progetto come un unico file eseguibile:
 
 - Modifica i nomi delle cartelle predefinite modificando le liste all'interno del file `src/main.py`.
 
+# Usage
+
+## Creazione di un eseguibile
+
+Per creare un singolo file eseguibile chiamato `ServerFolder.exe` utilizzando `pyinstaller`, esegui il seguente comando nel terminale:
+
+```sh
+pyinstaller --onefile --name ServerFolder src/main.py
+```
+
+Parametri utilizzati:
+--onefile: Crea un singolo file eseguibile.
+--name ServerFolder: Specifica il nome dell'eseguibile risultante.
+main.py: Il percorso del file principale del tuo progetto.
+
+Assicurati di eseguire questo comando nella directory principale del tuo progetto, dove si trova la cartella
+
 Se hai bisogno di ulteriori informazioni, consulta il file `README.md`.
