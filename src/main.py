@@ -73,6 +73,10 @@ def is_valid_folder_name(folder_name):
         return False, "Nome della cartella contiene caratteri non validi."
     if len(folder_name) > 255:
         return False, "Nome della cartella troppo lungo."
+    if folder_name in ["CON", "PRN", "AUX", "NUL"] or re.match(r"^(COM[1-9]|LPT[1-9])$", folder_name):
+        return False, "Nome della cartella è un nome riservato."
+    if folder_name.endswith(' ') or folder_name.endswith('.'):
+        return False, "Nome della cartella non può terminare con uno spazio o un punto."
     return True, ""
 
 def create_custom_folder():
