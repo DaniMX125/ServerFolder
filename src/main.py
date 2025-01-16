@@ -1,8 +1,8 @@
 import os
 import re
 
-FOLDERS_DOCUMENTI = ["Elettrico", "KickOff", "Layout", "Materiali", "Progettazione", "Disegni 3D"]
-FOLDERS_SOFTWARE = ["Reti", "Plc", "Hmi", "Controller", "Inverter", "Safety", "Camera", "Fielbus", "Firmware"]
+FOLDERS_DOCUMENTI = ["Elettrico", "KickOff", "Layout", "Materiali", "Progettazione", "Disegni 3D", "Collaudi Elettrici"]
+FOLDERS_SOFTWARE = ["Reti", "Plc", "Hmi", "Controller", "Inverter", "Safety", "Camera", "Fieldbus", "Firmware"]
 
 def create_folder(folder_name):
     """Crea una cartella se non esiste."""
@@ -82,9 +82,9 @@ def is_valid_folder_name(folder_name):
 def create_custom_folder():
     """Permette di creare una cartella con nome personalizzato."""
     while True:
-        response = get_valid_response("Vuoi creare una cartella nominativo? (yes/no): ")
+        response = get_valid_response("Vuoi creare un'altra cartella? (yes/no): ")
         if response == 'no':
-            print("Nessuna cartella nominativo creata. Programma terminato.")
+            print("Nessuna altra cartella creata. Programma terminato.")
             break
         elif response == 'yes':
             custom_name = input("Inserisci il nome della cartella: ").strip()
