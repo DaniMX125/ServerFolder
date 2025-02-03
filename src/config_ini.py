@@ -1,7 +1,7 @@
 import configparser
 import os
 
-def read_folders_from_ini():
+def read_folders_from_ini(current_dir):
     """
     Legge le liste di cartelle dal file settings.ini.
 
@@ -12,7 +12,7 @@ def read_folders_from_ini():
         tuple: Due liste contenenti i nomi delle cartelle per documenti e software.
     """
     config = configparser.ConfigParser()
-    ini_path = os.path.join(os.path.dirname(__file__), 'settings.ini')
+    ini_path = os.path.join(current_dir, 'settings.ini')
     
     if not os.path.exists(ini_path):
         return [], []
@@ -28,7 +28,7 @@ def read_folders_from_ini():
     return documenti, software
 
 
-def read_base_path_from_ini():
+def read_base_path_from_ini(current_dir):
     """
     Legge il percorso base dal file settings.ini.
 
@@ -38,8 +38,8 @@ def read_base_path_from_ini():
     Returns:
         str: Il percorso base per creare le cartelle.
     """
-    config = configparser.ConfigParser()
-    ini_path = os.path.join(os.path.dirname(__file__), 'settings.ini')
+    config = configparser.ConfigParser()        
+    ini_path = os.path.join(current_dir, 'settings.ini')
     
     if not os.path.exists(ini_path):
         return ""
