@@ -4,13 +4,13 @@ def get_commessa_folders(base_path):
     """
     Restituisce l'elenco delle cartelle di commessa nel percorso base.
     """
-    return [folder for folder in os.listdir(base_path) if folder.startswith("CDTP")]
+    return [folder for folder in os.listdir(base_path)]
 
 def check_commessa_exists(commessa_folders, nome_commessa):
     """
     Verifica se una cartella di commessa esiste nell'elenco delle cartelle.
     """
-    return any(folder == f"CDTP{nome_commessa}" for folder in commessa_folders)
+    return any(folder == f"{nome_commessa}" for folder in commessa_folders)
 
 def check_subfolders_exist(commessa_path, subfolders):
     """

@@ -7,13 +7,13 @@ import manage_folder as mf
 
 
 def create_folders(base_path, nome_commessa, suffix, folders):
-    commessa_path = os.path.join(base_path, f"CDTP{nome_commessa}")
-    name_folder_in_commessa = f"CDTP{nome_commessa}{suffix}"
+    commessa_path = os.path.join(base_path, f"{nome_commessa}")
+    name_folder_in_commessa = f"{nome_commessa}{suffix}"
     if mf.check_subfolders_exist(commessa_path, [name_folder_in_commessa]):
         print(f"La cartella '{name_folder_in_commessa}' esiste nella commessa '{nome_commessa}'.")
         # Crea le cartelle presenti in folders
-        dc000_path = os.path.join(commessa_path, name_folder_in_commessa)
-        mf.create_folders(dc000_path, folders)
+        path_folder_in_commessa = os.path.join(commessa_path, name_folder_in_commessa)
+        mf.create_folders(path_folder_in_commessa, folders)
         print(f"Cartelle in '{name_folder_in_commessa}' create in '{name_folder_in_commessa}'.")
     else:
         print(f"La cartella '{name_folder_in_commessa}' non esiste nella commessa '{nome_commessa}'.")
@@ -58,25 +58,7 @@ def main():
     create_folders(base_path, nome_commessa, "SW000", folders_software)
     
     input("Premi un tasto per uscire...")
-    return
-
-    # TO DELETE
-    # Verifica l'esistenza della cartella DC000
-    # commessa_path = os.path.join(base_path, f"CDTP{nome_commessa}")
-    # nome_commessa_documents = f"CDTP{nome_commessa}DC000"
-    # if mf.check_subfolders_exist(commessa_path, [nome_commessa_documents]):
-    #     print(f"La cartella '{nome_commessa_documents}' esiste nella commessa '{nome_commessa}'.")
-    #     # Crea le cartelle presenti in folders_documenti
-    #     dc000_path = os.path.join(commessa_path, nome_commessa_documents)
-    #     mf.create_folders(dc000_path, folders_documenti)
-    #     print(f"Cartelle in 'folders_documenti' create in '{nome_commessa_documents}'.")
-    # else:
-    #     print(f"La cartella '{nome_commessa_documents}' non esiste nella commessa '{nome_commessa}'.")
-    
-    # folder_type = get_valid_folder_type(f"Vuoi generare cartelle per documenti ('d') o software ('s')? ")
-    # generate_folders(folder_type, base_path, folders_documenti, folders_software)
-    # create_custom_folder(base_path)
-    
+    return 
 
 if __name__ == "__main__":
     main()
